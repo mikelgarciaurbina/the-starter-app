@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-import Button from "../components/Button";
-import FormTextInput from "../components/FormTextInput";
-import { STRINGS, THEME } from "../constants";
-import imageLogo from "../assets/images/logo.png";
+import Button from "../../components/Button";
+import FormTextInput from "../../components/FormTextInput";
+import { STRINGS, THEME } from "../../constants";
+import imageLogo from "../../assets/images/logo.png";
+
+import styles from './styles';
 
 const { EMAIL_PLACEHOLDER, LOGIN, PASSWORD_PLACEHOLDER } = STRINGS;
 
@@ -47,25 +49,5 @@ class LoginScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: THEME.WHITE,
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    width: "80%"
-  },
-  logo: {
-    flex: 1,
-    width: "100%",
-    resizeMode: "contain",
-    alignSelf: "center"
-  }
-});
 
 export default LoginScreen;
