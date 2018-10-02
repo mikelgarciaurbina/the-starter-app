@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, View } from "react-native";
 
-import Button from "../../components/Button";
-import FormTextInput from "../../components/FormTextInput";
-import { STRINGS, THEME } from "../../constants";
+import { Button, FormTextInput } from "../../components";
+import { STRINGS } from "../../constants";
 import imageLogo from "../../assets/images/logo.png";
 
 import styles from './styles';
