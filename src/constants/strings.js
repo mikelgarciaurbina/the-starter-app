@@ -1,6 +1,7 @@
 const strings = {
+  EMAIL_PLACEHOLDER: "Email",
   LOGIN: "Log In",
-  WELCOME_TO_LOGIN: "Welcome to the login screen!"
+  PASSWORD_PLACEHOLDER: "Password"
 };
 
 export default strings;
