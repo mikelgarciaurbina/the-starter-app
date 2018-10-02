@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, View } from "react-native";
+import { Image, KeyboardAvoidingView, View } from "react-native";
 
 import { Button, FormTextInput } from "../../components";
 import { STRINGS } from "../../constants";
@@ -29,7 +29,7 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <FormTextInput
@@ -44,7 +44,7 @@ class LoginScreen extends Component {
           />
           <Button label={LOGIN} onPress={this.handleLoginPress} />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
