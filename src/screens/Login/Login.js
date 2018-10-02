@@ -10,6 +10,8 @@ import styles from "./styles";
 const { EMAIL_PLACEHOLDER, LOGIN, PASSWORD_PLACEHOLDER } = STRINGS;
 
 class LoginScreen extends Component {
+  passwordInputRef = React.createRef();
+
   state = {
     email: "",
     password: ""
@@ -23,6 +25,12 @@ class LoginScreen extends Component {
     this.setState({ password: password });
   };
 
+  handleEmailSubmitPress = () => {
+    if (this.passwordInputRef.current) {
+      this.passwordInputRef.current.focus();
+    }
+  };
+
   handleLoginPress = () => {
     console.log("Login button pressed");
   };
@@ -33,14 +41,21 @@ class LoginScreen extends Component {
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <FormTextInput
-            value={this.state.email}
+            autoCorrect={false}
+            keyboardType="email-address"
             onChangeText={this.handleEmailChange}
+            onSubmitEditing={this.handleEmailSubmitPress}
             placeholder={EMAIL_PLACEHOLDER}
+            returnKeyType="next"
+            value={this.state.email}
           />
           <FormTextInput
-            value={this.state.password}
             onChangeText={this.handlePasswordChange}
             placeholder={PASSWORD_PLACEHOLDER}
+            ref={this.passwordInputRef}
+            returnKeyType="done"
+            secureTextEntry={true}
+            value={this.state.password}
           />
           <Button label={LOGIN} onPress={this.handleLoginPress} />
         </View>
