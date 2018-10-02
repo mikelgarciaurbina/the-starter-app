@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Image, View } from "react-native";
 
-import { Button, FormTextInput } from "../../components";
+import { Button, FormTextInput } from "../../components";
 import { STRINGS } from "../../constants";
 import imageLogo from "../../assets/images/logo.png";
 
-import styles from './styles';
+import styles from "./styles";
 
 const { EMAIL_PLACEHOLDER, LOGIN, PASSWORD_PLACEHOLDER } = STRINGS;
 
