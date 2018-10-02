@@ -6,6 +6,8 @@ import FormTextInput from "../components/FormTextInput";
 import { STRINGS, THEME } from "../constants";
 import imageLogo from "../assets/images/logo.png";
 
+const { EMAIL_PLACEHOLDER, LOGIN, PASSWORD_PLACEHOLDER } = STRINGS;
+
 class LoginScreen extends Component {
   state = {
     email: "",
@@ -19,13 +21,13 @@ class LoginScreen extends Component {
         <View style={styles.form}>
           <FormTextInput
             value={this.state.email}
-            placeholder={STRINGS.EMAIL_PLACEHOLDER}
+            placeholder={EMAIL_PLACEHOLDER}
           />
           <FormTextInput
             value={this.state.password}
-            placeholder={STRINGS.PASSWORD_PLACEHOLDER}
+            placeholder={PASSWORD_PLACEHOLDER}
           />
-          <Button label={STRINGS.LOGIN} />
+          <Button label={LOGIN} />
         </View>
       </View>
     );
