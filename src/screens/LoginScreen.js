@@ -14,6 +14,18 @@ class LoginScreen extends Component {
     password: ""
   };
 
+  handleEmailChange = (email: string) => {
+    this.setState({ email: email });
+  };
+
+  handlePasswordChange = (password: string) => {
+    this.setState({ password: password });
+  };
+
+  handleLoginPress = () => {
+    console.log("Login button pressed");
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -21,13 +33,15 @@ class LoginScreen extends Component {
         <View style={styles.form}>
           <FormTextInput
             value={this.state.email}
+            onChangeText={this.handleEmailChange}
             placeholder={EMAIL_PLACEHOLDER}
           />
           <FormTextInput
             value={this.state.password}
+            onChangeText={this.handlePasswordChange}
             placeholder={PASSWORD_PLACEHOLDER}
           />
-          <Button label={LOGIN} />
+          <Button label={LOGIN} onPress={this.handleLoginPress} />
         </View>
       </View>
     );
