@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { STRINGS } from "../constants";
+
 class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome to the Login screen!</Text>
+        <Text>{STRINGS.WELCOME_TO_LOGIN}</Text>
       </View>
     );
   }
