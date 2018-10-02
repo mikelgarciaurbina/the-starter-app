@@ -25,6 +25,7 @@ class LoginScreen extends Component {
             value={this.state.password}
             placeholder={STRINGS.PASSWORD_PLACEHOLDER}
           />
+          <Button label={STRINGS.LOGIN} />
         </View>
       </View>
     );
