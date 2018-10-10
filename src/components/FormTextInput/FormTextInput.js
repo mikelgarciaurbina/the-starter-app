@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput } from "react-native";
+import { Text, TextInput, View } from "react-native";
 
 import { THEME } from "../../constants";
 
@@ -17,15 +17,18 @@ class FormTextInput extends Component {
   };
 
   render() {
-    const { style, ...otherProps } = this.props;
+    const { error, style, ...otherProps } = this.props;
 
     return (
-      <TextInput
-        ref={this.textInputRef}
-        selectionColor={DODGER_BLUE}
-        style={[styles.textInput, style]}
-        {...otherProps}
-      />
+      <View style={[styles.container, style]}>
+        <TextInput
+          ref={this.textInputRef}
+          selectionColor={DODGER_BLUE}
+          style={[styles.textInput, style]}
+          {...otherProps}
+        />
+        <Text style={styles.errorText}>{error || ""}</Text>
+      </View>
     );
   }
 }
