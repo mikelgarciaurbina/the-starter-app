@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, KeyboardAvoidingView, View } from "react-native";
+import { Image, KeyboardAvoidingView, StatusBar, View } from "react-native";
 
 import { Button, FormTextInput } from "../../components";
 import { STRINGS } from "../../constants";
@@ -59,6 +59,7 @@ class LoginScreen extends Component {
 
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <StatusBar backgroundColor="blue" barStyle="dark-content" translucent={true} />
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <FormTextInput
