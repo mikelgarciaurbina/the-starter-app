@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 import { THEME } from "../../constants";
 
@@ -10,12 +10,24 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    borderColor: SILVER,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    ...Platform.select({
+      ios: {
+        borderColor: SILVER,
+        borderBottomWidth: StyleSheet.hairlineWidth
+      },
+      android: {
+        paddingLeft: 6
+      }
+    })
   },
   errorText: {
     height: 20,
-    color: TORCH_RED
+    color: TORCH_RED,
+    ...Platform.select({
+      android: {
+        paddingLeft: 6
+      }
+    })
   }
 });
 
