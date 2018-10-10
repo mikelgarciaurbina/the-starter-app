@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: "rgba(255,255,255,0.7)"
   },
+  containerEnabled: {
+    opacity: 1
+  },
+  containerDisabled: {
+    opacity: 0.3
+  },
   text: {
     color: WHITE,
     textAlign: "center",
