@@ -6,9 +6,9 @@ const { WHITE } = THEME;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: THEME.WHITE,
     alignItems: "center",
+    backgroundColor: WHITE,
+    flex: 1,
     justifyContent: "space-between"
   },
   form: {
@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
     width: "80%"
   },
   logo: {
+    alignSelf: "center",
     flex: 1,
-    width: "100%",
     resizeMode: "contain",
-    alignSelf: "center"
+    width: "100%"
   }
 });
 

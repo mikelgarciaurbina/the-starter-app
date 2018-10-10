@@ -7,22 +7,30 @@ import imageLogo from "../../assets/images/logo.png";
 
 import styles from "./styles";
 
-const { EMAIL_PLACEHOLDER, LOGIN, PASSWORD_PLACEHOLDER } = STRINGS;
+const {
+  EMAIL_REQUIRED,
+  EMAIL_PLACEHOLDER,
+  LOGIN,
+  PASSWORD_REQUIRED,
+  PASSWORD_PLACEHOLDER
+} = STRINGS;
 
 class LoginScreen extends Component {
   passwordInputRef = React.createRef();
 
   state = {
     email: "",
-    password: ""
+    password: "",
+    emailTouched: false,
+    passwordTouched: false
   };
 
-  handleEmailChange = (email: string) => {
-    this.setState({ email: email });
+  handleEmailChange = email => {
+    this.setState({ email });
   };
 
-  handlePasswordChange = (password: string) => {
-    this.setState({ password: password });
+  handlePasswordChange = password => {
+    this.setState({ password });
   };
 
   handleEmailSubmitPress = () => {
@@ -31,33 +39,54 @@ class LoginScreen extends Component {
     }
   };
 
+  handleEmailBlur = () => {
+    this.setState({ emailTouched: true });
+  };
+
+  handlePasswordBlur = () => {
+    this.setState({ passwordTouched: true });
+  };
+
   handleLoginPress = () => {
     console.log("Login button pressed");
   };
 
   render() {
+    const { email, password, emailTouched, passwordTouched } = this.state;
+    const emailError = !email && emailTouched ? EMAIL_REQUIRED : undefined;
+    const passwordError =
+      !password && passwordTouched ? PASSWORD_REQUIRED : undefined;
+
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <FormTextInput
             autoCorrect={false}
+            error={emailError}
             keyboardType="email-address"
+            onBlur={this.handleEmailBlur}
             onChangeText={this.handleEmailChange}
             onSubmitEditing={this.handleEmailSubmitPress}
             placeholder={EMAIL_PLACEHOLDER}
             returnKeyType="next"
-            value={this.state.email}
+            value={email}
           />
           <FormTextInput
+            error={passwordError}
+            onBlur={this.handlePasswordBlur}
             onChangeText={this.handlePasswordChange}
             placeholder={PASSWORD_PLACEHOLDER}
             ref={this.passwordInputRef}
             returnKeyType="done"
             secureTextEntry={true}
-            value={this.state.password}
+            value={password}
           />
-          <Button label={LOGIN} onPress={this.handleLoginPress} />
+          <Button
+            disabled={!email || !password}
+            label={LOGIN}
+            onPress={this.handleLoginPress}
+          />
         </View>
       </KeyboardAvoidingView>
     );
